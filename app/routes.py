@@ -16,7 +16,7 @@ def create_item(my_target_field: str, item: Item, db: Session = Depends(SessionL
     if my_target_field not in ["field_1", "author", "description"]:
         raise HTTPException(status_code=400, detail="Invalid target field")
 
-    # Comprueba si my_target_field es un campo válido
+   
     if hasattr(item, my_target_field) and isinstance(getattr(item, my_target_field), str):
         setattr(item, my_target_field, getattr(item, my_target_field).upper())
     else:
